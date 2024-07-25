@@ -1,0 +1,45 @@
+{
+    "id": "assembler1usa",
+    "attributes": {
+        "type": "Service_ass1",
+        "actions": {
+            "assembling": {
+                "properties": {
+                    "type": "operation",
+                    "command": "assemble_1",
+                    "cost": 5,
+                    "parameters": [
+                        "MotorObject - s",
+                        "InverterMaterial - i",
+                        "RotorMaterial - r",
+                        "StatorMaterial - d"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "i.taken:true",
+                            "r.taken:true",
+                            "d.taken:true",
+                            "s.assembled:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.assembled:true"
+                        ],
+                        "deleted": [
+                            "s.assembled:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

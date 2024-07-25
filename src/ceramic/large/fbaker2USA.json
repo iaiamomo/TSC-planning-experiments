@@ -1,0 +1,40 @@
+{
+    "id": "fbaker2usa",
+    "attributes": {
+        "type": "Service_fbak2",
+        "actions": {
+            "fbaking": {
+                "properties": {
+                    "type": "operation",
+                    "command": "f_bake_2",
+                    "cost": 2,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.dried:true",
+                            "s.firstbaked:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.firstbaked:true"
+                        ],
+                        "deleted": [
+                            "s.firstbaked:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

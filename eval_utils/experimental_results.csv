@@ -1,0 +1,13 @@
+case_study,dimension,mem_tot,comp_time
+ceramic,xsmall,27.6,0.622549052
+ceramic,small,27.7,0.692149117
+ceramic,medium,27.5,0.629470574
+ceramic,large,27.4,0.674536788
+chip,xsmall,27.7,0.618340945
+chip,small,27.6,0.597008542
+chip,medium,27.7,0.632719505
+chip,large,27.6,0.74934107
+motor,xsmall,27.8,0.637725256
+motor,small,27.8,0.528547313
+motor,medium,27.8,0.591656392
+motor,large,27.4,0.630604561

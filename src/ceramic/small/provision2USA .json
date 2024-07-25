@@ -1,0 +1,39 @@
+{
+    "id": "provisioner2usa",
+    "attributes": {
+        "type": "Service_pro2",
+        "actions": {
+            "provisioning": {
+                "properties": {
+                    "type": "operation",
+                    "command": "provision_2",
+                    "cost": 1,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.provisioned:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.provisioned:true"
+                        ],
+                        "deleted": [
+                            "s.provisioned:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

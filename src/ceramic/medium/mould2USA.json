@@ -1,0 +1,40 @@
+{
+    "id": "mould2usa",
+    "attributes": {
+        "type": "Service_mou2",
+        "actions": {
+            "moulding": {
+                "properties": {
+                    "type": "operation",
+                    "command": "mould_2",
+                    "cost": 12,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.provisioned:true",
+                            "s.moulded:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.moulded:true"
+                        ],
+                        "deleted": [
+                            "s.moulded:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

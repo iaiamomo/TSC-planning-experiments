@@ -1,0 +1,48 @@
+{
+    "id": "ceramic",
+    "attributes": {
+        "type": "CeramicMaterial"
+    },
+    "features": {
+        "provisioned": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "moulded": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "dried": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "firstbaked": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "enamelled": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "painted": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "secondbaked": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "shipped": {
+            "properties": {
+                "value": "false"
+            }
+        }
+    }
+}

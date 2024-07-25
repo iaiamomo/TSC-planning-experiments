@@ -1,0 +1,18 @@
+{
+    "id": "stator",
+    "attributes": {
+        "type": "StatorMaterial"
+    },
+    "features": {
+        "taken": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "assembled": {
+            "properties": {
+                "value": "false"
+            }
+        }
+    }
+}

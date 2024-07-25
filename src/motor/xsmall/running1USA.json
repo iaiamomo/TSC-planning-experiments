@@ -1,0 +1,40 @@
+{
+    "id": "running1usa",
+    "attributes": {
+        "type": "Service_run1",
+        "actions": {
+            "running": {
+                "properties": {
+                    "type": "operation",
+                    "command": "run_1",
+                    "cost": 5,
+                    "parameters": [
+                        "MotorObject - a"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "a.assembled:true",
+                            "a.run:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "a.run:true"
+                        ],
+                        "deleted": [
+                            "a.run:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

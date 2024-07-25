@@ -1,0 +1,40 @@
+{
+    "id": "dryer2usa",
+    "attributes": {
+        "type": "Service_dry2",
+        "actions": {
+            "drying": {
+                "properties": {
+                    "type": "operation",
+                    "command": "dry_2",
+                    "cost": 1,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.moulded:true",
+                            "s.dried:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.dried:true"
+                        ],
+                        "deleted": [
+                            "s.dried:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

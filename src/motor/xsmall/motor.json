@@ -1,0 +1,28 @@
+{
+    "id": "motor",
+    "attributes": {
+        "type": "MotorObject"
+    },
+    "features": {
+        "assembled": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "run": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "tested": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "painted": {
+            "properties": {
+                "value": "false"
+            }
+        }
+    }
+}

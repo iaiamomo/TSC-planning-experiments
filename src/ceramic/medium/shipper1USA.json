@@ -1,0 +1,40 @@
+{
+    "id": "shipper1usa",
+    "attributes": {
+        "type": "Service_shi1",
+        "actions": {
+            "shipping": {
+                "properties": {
+                    "type": "operation",
+                    "command": "shi_1",
+                    "cost": 1,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.secondbaked:true",
+                            "s.shipped:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.shipped:true"
+                        ],
+                        "deleted": [
+                            "s.shipped:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

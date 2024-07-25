@@ -1,0 +1,9 @@
+case_study,dimension,mode,gamma,n_services,n_states,mem_tot,comp_time,policy_time
+chip,xsmall,automata,0.9,14,58,132.7,0.820548329,0.092557018
+chip,small,automata,0.9,21,66,153.8,11.066347356,0.0854252143
+chip,medium,automata,0.9,28,78,236.6,86.707590605,0.096185949
+chip,large,automata,0.9,35,82,421.2,347.670547592,0.119144444
+chip,xsmall,ltlf,0.9,14,2905,167.6,1.517229178,3.113866229
+chip,small,ltlf,0.9,21,17023,412.4,19.8811524,17.908268926
+chip,medium,ltlf,0.9,28,60799,1441.0,114.731226409,70.3172093142
+chip,large,ltlf,0.9,35,149527,4172.0,454.626486343,213.142447762

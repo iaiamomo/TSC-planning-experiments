@@ -1,0 +1,11 @@
+Filename: /home/default/controller.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    26     27.8 MiB     27.8 MiB           1   @profile(stream=open(fp_downward, 'w+'))
+    27                                         def execute_downward(domain, problem):
+    28     27.8 MiB      0.0 MiB           1       command = f"/home/default/downward/fast-downward.py {domain} {problem} --search 'astar(lmcut())'" 
+    29     27.8 MiB      0.0 MiB           1       result = subprocess.run(command, shell = True, stdout=subprocess.PIPE)
+    30     27.8 MiB      0.0 MiB           1       return result
+
+

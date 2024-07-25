@@ -1,0 +1,39 @@
+{
+    "id": "inventoryrus",
+    "attributes": {
+        "type": "Service_inv_ru",
+        "actions": {
+            "taking_rotor": {
+                "properties": {
+                    "type": "operation",
+                    "command": "take_rotor_ru",
+                    "cost": 20,
+                    "parameters": [
+                        "RotorMaterial - b"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "b.taken:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "b.taken:true"
+                        ],
+                        "deleted": [
+                            "b.taken:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

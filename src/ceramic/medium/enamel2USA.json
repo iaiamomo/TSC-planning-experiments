@@ -1,0 +1,40 @@
+{
+    "id": "enameller2usa",
+    "attributes": {
+        "type": "Service_enam2",
+        "actions": {
+            "enamelling": {
+                "properties": {
+                    "type": "operation",
+                    "command": "enamel_2",
+                    "cost": 6,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.firstbaked:true",
+                            "s.enamelled:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.enamelled:true"
+                        ],
+                        "deleted": [
+                            "s.enamelled:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

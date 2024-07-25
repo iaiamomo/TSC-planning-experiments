@@ -1,0 +1,87 @@
+{
+    "id": "inventoryusa",
+    "attributes": {
+        "type": "Service_inv_us",
+        "actions": {
+            "taking_inverter": {
+                "properties": {
+                    "type": "operation",
+                    "command": "take_inverter_us",
+                    "cost": 1,
+                    "parameters": [
+                        "InverterMaterial - b"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "b.taken:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "b.taken:true"
+                        ],
+                        "deleted": [
+                            "b.taken:false"
+                        ]
+                    }
+                }
+            },
+            "taking_rotor": {
+                "properties": {
+                    "type": "operation",
+                    "command": "take_rotor_us",
+                    "cost": 1,
+                    "parameters": [
+                        "RotorMaterial - b"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "b.taken:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "b.taken:true"
+                        ],
+                        "deleted": [
+                            "b.taken:false"
+                        ]
+                    }
+                }
+            },
+            "taking_stator": {
+                "properties": {
+                    "type": "operation",
+                    "command": "take_stator_us",
+                    "cost": 1,
+                    "parameters": [
+                        "StatorMaterial - b"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "b.taken:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "b.taken:true"
+                        ],
+                        "deleted": [
+                            "b.taken:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

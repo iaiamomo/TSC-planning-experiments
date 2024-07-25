@@ -1,0 +1,5 @@
+case_study,dimension,mem_tot,comp_time
+chip,xsmall,27.7,0.618340945
+chip,small,27.6,0.597008542
+chip,medium,27.7,0.632719505
+chip,large,27.6,0.74934107

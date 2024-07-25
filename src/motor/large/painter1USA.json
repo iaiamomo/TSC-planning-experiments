@@ -1,0 +1,40 @@
+{
+    "id": "painter1usa",
+    "attributes": {
+        "type": "Service_pain1",
+        "actions": {
+            "painting": {
+                "properties": {
+                    "type": "operation",
+                    "command": "paint_1",
+                    "cost": 5,
+                    "parameters": [
+                        "MotorObject - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.painted:false",
+                            "s.run:true",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.painted:true"
+                        ],
+                        "deleted": [
+                            "s.painted:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "id": "rotor",
+    "attributes": {
+        "type": "RotorMaterial"
+    },
+    "features": {
+        "taken": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "assembled": {
+            "properties": {
+                "value": "false"
+            }
+        }
+    }
+}

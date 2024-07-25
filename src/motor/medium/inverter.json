@@ -1,0 +1,18 @@
+{
+    "id": "inverter",
+    "attributes": {
+        "type": "InverterMaterial"
+    },
+    "features": {
+        "taken": {
+            "properties": {
+                "value": "false"
+            }
+        },
+        "assembled": {
+            "properties": {
+                "value": "false"
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "id": "inventorybr",
+    "attributes": {
+        "type": "Service_inv_br",
+        "actions": {
+            "taking_inverter": {
+                "properties": {
+                    "type": "operation",
+                    "command": "take_inverter_br",
+                    "cost": 2,
+                    "parameters": [
+                        "InverterMaterial - b"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "b.taken:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "b.taken:true"
+                        ],
+                        "deleted": [
+                            "b.taken:false"
+                        ]
+                    }
+                }
+            },
+            "taking_rotor": {
+                "properties": {
+                    "type": "operation",
+                    "command": "take_rotor_br",
+                    "cost": 2,
+                    "parameters": [
+                        "RotorMaterial - b"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "b.taken:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "b.taken:true"
+                        ],
+                        "deleted": [
+                            "b.taken:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

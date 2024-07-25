@@ -1,0 +1,40 @@
+{
+    "id": "sbaker1usa",
+    "attributes": {
+        "type": "Service_sbak1",
+        "actions": {
+            "sbaking": {
+                "properties": {
+                    "type": "operation",
+                    "command": "s_bake_1",
+                    "cost": 1,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.painted:true",
+                            "s.secondbaked:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.secondbaked:true"
+                        ],
+                        "deleted": [
+                            "s.secondbaked:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}

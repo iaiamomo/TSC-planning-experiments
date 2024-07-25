@@ -1,0 +1,40 @@
+{
+    "id": "painter1usa",
+    "attributes": {
+        "type": "Service_pain1",
+        "actions": {
+            "painting": {
+                "properties": {
+                    "type": "operation",
+                    "command": "paint_1",
+                    "cost": 2,
+                    "parameters": [
+                        "CeramicMaterial - s"
+                    ],
+                    "requirements": {
+                        "positive": [
+                            "s.enamelled:true",
+                            "s.painted:false",
+                            "status:available"
+                        ]
+                    },
+                    "effects": {
+                        "added": [
+                            "s.painted:true"
+                        ],
+                        "deleted": [
+                            "s.painted:false"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "features": {
+        "status":{
+            "properties": {
+                "value": "available"
+            }
+        }
+    }
+}
