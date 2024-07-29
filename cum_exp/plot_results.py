@@ -11,8 +11,11 @@ if __name__ == "__main__":
     moded = ["mdp", "plan"]
     modes_mdp = ["automata", "ltlf"]
     dimensions = ["xsmall", "small", "medium", "large"]
-    dimensions_num = [0, 10, 20, 30]
+    services = [14, 21, 28, 35]
     case_study = "chip"
+
+    line_styles_mem = ['solid', 'dashed', 'dotted']
+    line_styles_tim = ['solid', 'dashed', 'dotted']
     
     mems = {'automata': [], 'ltlf': [], 'plan': []}
     times_comp = {'automata': [], 'ltlf': [], 'plan': []}
@@ -33,22 +36,24 @@ if __name__ == "__main__":
     ax1 = fig.add_subplot(111)
 
     color = 'tab:red'
-    lns1 = ax1.plot(dimensions_num, mems['automata'], '-o', color=color, label='Automata')
-    ax1.set_xticks(dimensions_num, dimensions)
-    ax1.set_xlabel('Dimension')
+    lns1 = ax1.plot(services, mems['automata'], '-o', color=color, label='Automata', linestyle=line_styles_mem[0])
+    ax1.set_xticks(services)
+    ax1.set_xlabel('Services')
     ax1.set_ylabel('Memory (MiB)')
     ax1.tick_params(axis='y', labelcolor=color)
 
     color = 'tab:blue'
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
-    lns2 = ax2.plot(dimensions_num, mems['ltlf'], '-o', color=color, label='LTLf')
+    lns2 = ax2.plot(services, mems['ltlf'], '-o', color=color, label='LTLf', linestyle=line_styles_mem[1])
     ax2.set_ylabel('')
     ax2.tick_params(axis='y', labelcolor=color)
 
     color = 'tab:green'
     ax3 = ax1.twinx()
     ax3.spines['right'].set_position(('outward', 38))  # Move the third axis outward
-    lns3 = ax3.plot(dimensions_num, mems['plan'], '-o', color=color, label='Planning')
+    lns3 = ax3.plot(services, mems['plan'], '-o', color=color, label='Planning', linestyle=line_styles_mem[2])
+    #set y axis values
+    ax3.set_yticks(list(range(24, 34, 2)))
     ax3.set_ylabel('')
     ax3.tick_params(axis='y', labelcolor=color)
 
@@ -59,7 +64,6 @@ if __name__ == "__main__":
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.savefig(f'mem_usage_{case_study}.png')
     plt.show(block=False)
-
 
 
     time_comp_automata = times_comp['automata']
@@ -75,22 +79,22 @@ if __name__ == "__main__":
     ax1 = fig.add_subplot(111)
 
     color = 'tab:red'
-    lns1 = ax1.plot(dimensions_num, tot_time_automata, '-o', color=color, label='Automata')
-    ax1.set_xticks(dimensions_num, dimensions)
-    ax1.set_xlabel('Dimension')
+    lns1 = ax1.plot(services, tot_time_automata, '-o', color=color, label='Automata', linestyle=line_styles_tim[0])
+    ax1.set_xticks(services)
+    ax1.set_xlabel('Services')
     ax1.set_ylabel('Time (s)')
     ax1.tick_params(axis='y', labelcolor=color)
 
     color = 'tab:blue'
     ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
-    lns2 = ax2.plot(dimensions_num, tot_time_ltlf, '-o', color=color, label='LTLf')
+    lns2 = ax2.plot(services, tot_time_ltlf, '-o', color=color, label='LTLf', linestyle=line_styles_tim[1])
     ax2.set_ylabel('')
     ax2.tick_params(axis='y', labelcolor=color)
 
     color = 'tab:green'
     ax3 = ax1.twinx()
     ax3.spines['right'].set_position(('outward', 38))  # Move the third axis outward
-    lns3 = ax3.plot(dimensions_num, times_comp['plan'], '-o', color=color, label='Planning')
+    lns3 = ax3.plot(services, times_comp['plan'], '-o', color=color, label='Planning', linestyle=line_styles_tim[2])
     ax3.set_ylabel('')
     ax3.tick_params(axis='y', labelcolor=color)
 
