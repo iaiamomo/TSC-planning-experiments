@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 if __name__ == "__main__":
     df_mdp = pd.read_csv("chip_mdp.csv")
@@ -38,7 +39,7 @@ if __name__ == "__main__":
     color = 'tab:red'
     lns1 = ax1.plot(services, mems['automata'], '-o', color=color, label='Automata', linestyle=line_styles_mem[0])
     ax1.set_xticks(services)
-    ax1.set_xlabel('Services')
+    ax1.set_xlabel('Number of services')
     ax1.set_ylabel('Memory (MiB)')
     ax1.tick_params(axis='y', labelcolor=color)
 
@@ -52,14 +53,13 @@ if __name__ == "__main__":
     ax3 = ax1.twinx()
     ax3.spines['right'].set_position(('outward', 38))  # Move the third axis outward
     lns3 = ax3.plot(services, mems['plan'], '-o', color=color, label='Planning', linestyle=line_styles_mem[2])
-    #set y axis values
     ax3.set_yticks(list(range(24, 34, 2)))
     ax3.set_ylabel('')
     ax3.tick_params(axis='y', labelcolor=color)
 
     lns = lns1+lns2+lns3
     labs = [l.get_label() for l in lns]
-    ax1.legend(lns, labs, loc=0, bbox_to_anchor=(0.4, 1.0))
+    ax1.legend(lns, labs, loc=0)#, bbox_to_anchor=(0.4, 1.0))
     ax1.grid()
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.savefig(f'mem_usage_{case_study}.png')
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     color = 'tab:red'
     lns1 = ax1.plot(services, tot_time_automata, '-o', color=color, label='Automata', linestyle=line_styles_tim[0])
     ax1.set_xticks(services)
-    ax1.set_xlabel('Services')
+    ax1.set_xlabel('Number of services')
     ax1.set_ylabel('Time (s)')
     ax1.tick_params(axis='y', labelcolor=color)
 
@@ -95,6 +95,7 @@ if __name__ == "__main__":
     ax3 = ax1.twinx()
     ax3.spines['right'].set_position(('outward', 38))  # Move the third axis outward
     lns3 = ax3.plot(services, times_comp['plan'], '-o', color=color, label='Planning', linestyle=line_styles_tim[2])
+    ax3.set_yticks(list(np.arange(0.4, 1.1, 0.1)))
     ax3.set_ylabel('')
     ax3.tick_params(axis='y', labelcolor=color)
 

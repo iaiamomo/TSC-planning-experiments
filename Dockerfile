@@ -21,14 +21,11 @@ RUN apt-get update &&\
     apt-get clean &&\
     rm -rf /var/cache
 
-COPY requirements.txt ./
-
-RUN pip install --no-cache-dir -r requirements.txt
-
 WORKDIR /home/default/
 
 RUN git clone https://github.com/iaiamomo/TSC-planning-experiments.git &&\
     cd /home/default/TSC-planning-experiments &&\
+    pip install --no-cache-dir -r requirements.txt &&\
     git clone https://github.com/iaiamomo/IndustrialAPI.git &&\
     git clone https://github.com/aibasel/downward.git
 
