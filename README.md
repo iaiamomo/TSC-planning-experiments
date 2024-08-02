@@ -77,7 +77,7 @@ Evaluation results of the experiments can be found in [eval_utils](eval_utils/).
 ![time motor](eval_utils/time_consumption_motor.png)
 
 
-## Comulative Experimental Results
+## Comulative Experimental Results - Chip case study
 
 Comulative results (including also policy-based approachs) are available in [cum_exp](cum_exp).
 

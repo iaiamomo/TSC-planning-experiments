@@ -17,8 +17,8 @@ if __name__ == "__main__":
             mems.append(df[(df["case_study"] == case_study) & (df["dimension"] == dimension)]["mem_tot"].values[0])
             times_comp.append(df[(df["case_study"] == case_study) & (df["dimension"] == dimension)]["comp_time"].values[0])
         
-        plt.figure(f"Memory usage - planning - {case_study}")
-        plt.title(f'Memory usage - planning - {case_study}')
+        plt.figure(f"Memory usage - {case_study}")
+        plt.title(f'Memory usage - {case_study}')
         plt.plot(dimensions_num, mems, '-o', label='Planning')
         plt.xticks(dimensions_num, dimensions)
         plt.xlabel('Dimension')
@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
 
         plt.figure(f"Solution computation time - {case_study}")
-        plt.title('Planning - Time consumption')
+        plt.title(f'Time consumption - {case_study}')
         plt.plot(dimensions_num, times_comp, '-o', label='Planning')
         plt.xticks(dimensions_num, dimensions)
         plt.xlabel('Number of services')
