@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-if __name__ == "__main__":
+def three_axes_plot():
     df_mdp = pd.read_csv("chip_mdp.csv")
     print(df_mdp)
 
@@ -106,3 +106,80 @@ if __name__ == "__main__":
     fig.tight_layout()  # otherwise the right y-label is slightly clipped
     plt.savefig(f'exe_time_{case_study}.png')
     plt.show(block=False)
+
+
+def one_axis_plot():
+    df_mdp = pd.read_csv("chip_mdp.csv")
+    print(df_mdp)
+
+    df_plan = pd.read_csv("chip_plan.csv")
+    print(df_plan)
+
+    moded = ["mdp", "plan"]
+    modes_mdp = ["automata", "ltlf"]
+    dimensions = ["xsmall", "small", "medium", "large"]
+    services = [14, 21, 28, 35]
+    case_study = "chip"
+
+    line_styles_mem = ['solid', 'dashed', 'dotted']
+    line_styles_tim = ['solid', 'dashed', 'dotted']
+    
+    mems = {'automata': [], 'ltlf': [], 'plan': []}
+    times_comp = {'automata': [], 'ltlf': [], 'plan': []}
+    times_gamma_pol = {'automata': {0.9: []}, 'ltlf': {0.9: []}}
+
+    for dimension in dimensions:
+        mems['plan'].append(df_plan[(df_plan["case_study"] == case_study) & (df_plan["dimension"] == dimension)]["mem_tot"].values[0])
+        times_comp['plan'].append(df_plan[(df_plan["case_study"] == case_study) & (df_plan["dimension"] == dimension)]["comp_time"].values[0])
+    
+    for mode_mdp in modes_mdp:
+        for dimension in dimensions:
+            mems[mode_mdp].append(df_mdp[(df_mdp["case_study"] == case_study) & (df_mdp["dimension"] == dimension) & (df_mdp["mode"] == mode_mdp)]["mem_tot"].values[0])
+            times_comp[mode_mdp].append(df_mdp[(df_mdp["case_study"] == case_study) & (df_mdp["dimension"] == dimension) & (df_mdp["mode"] == mode_mdp)]["comp_time"].values[0])
+            times_gamma_pol[mode_mdp][0.9].append(df_mdp[(df_mdp["case_study"] == case_study) & (df_mdp["dimension"] == dimension) & (df_mdp["mode"] == mode_mdp)]["policy_time"].values[0])
+    
+    plt.figure(f"Memory usage - {case_study}")
+
+    color = '#DC267F'
+    plt.plot(services, mems['automata'], '-o', color=color, label='Automata', linestyle=line_styles_mem[0])
+    color = '#FFB000'
+    plt.plot(services, mems['ltlf'], '-o', color=color, label='LTLf', linestyle=line_styles_mem[1])
+    color = '#0072B2'
+    plt.plot(services, mems['plan'], '-o', color=color, label='Planning', linestyle=line_styles_mem[2])
+
+    plt.xlabel('Number of services')
+    plt.ylabel('Memory (MiB)')
+    plt.legend()
+    plt.grid()
+    plt.savefig(f'mem_usage_{case_study}_one.png')
+    plt.show(block=False)
+
+
+    time_comp_automata = times_comp['automata']
+    time_comp_ltlf = times_comp['ltlf']
+    time_pol_automata = times_gamma_pol["automata"]
+    time_pol_ltlf = times_gamma_pol["ltlf"]
+
+    tot_time_automata = [sum(x) for x in zip(time_comp_automata, time_pol_automata[0.9])]
+    tot_time_ltlf = [sum(x) for x in zip(time_comp_ltlf, time_pol_ltlf[0.9])]
+
+    plt.figure(f"Execution time - {case_study}")
+
+    color = '#DC267F'
+    plt.plot(services, tot_time_automata, '-o', color=color, label='Automata', linestyle=line_styles_tim[0])
+    color = '#FFB000'
+    plt.plot(services, tot_time_ltlf, '-o', color=color, label='LTLf', linestyle=line_styles_tim[1])
+    color = '#0072B2'
+    plt.plot(services, times_comp['plan'], '-o', color=color, label='Planning', linestyle=line_styles_tim[2])
+    
+    plt.xlabel('Number of services')
+    plt.ylabel('Time (s)')
+    plt.legend()
+    plt.grid()
+    plt.savefig(f'exe_time_{case_study}_one.png')
+    plt.show(block=False)
+    
+
+if __name__ == "__main__":
+    print("Plotting results")
+    one_axis_plot()

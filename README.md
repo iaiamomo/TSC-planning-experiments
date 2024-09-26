@@ -86,3 +86,17 @@ Comulative results (including also policy-based approachs) are available in [cum
 
 #### Memory consumption
 ![mem chip](cum_exp/mem_usage_chip.png)
+
+
+## User Study
+
+A user study is realized with 8 participants to analyzing the tradeoff between the expressive power of the modeling approaches and the complexity for practitioners to apply them. \
+We disseminated a questionnaire (which can be found [here](user_study/exercises.pdf)) with a description of the specifics of the two modeling approaches and two exercises to be solved. \
+We measured the time employed by the participants to solve the exercise and then interviewed the participants on the solved exercises. 
+- Results of ex1 can be found [here](user_study/res_ex1_tsc.pdf) 
+- Results of ex2 can be found [here](user_study/res_ex2_tsc.pdf)
+- Comulative results can be found [here](user_study/res.xlsx). Each solved exercise has been evaluated from 1 to 5, with 1 being wrong answer and 5 being correct answer (i.e., 1 wrong, 2 less than acceptable, 3 acceptable, 4 more than acceptable, 5 correct). The employed time is measured in minutes.
+
+The results showed that MDP-based modeling was found to be more expressive, allowing for a detailed representation of manufacturing assets. However, it was also more time-consuming for participants to apply. Furthermore, some experts struggled to achieve the correct version of the model, indicating higher complexity.\
+Flower graph modeling, in contrast, was simpler and faster for all participants. Every participant was able to model the services correctly within a shorter time frame, suggesting that this method, while less expressive, is more accessible.\
+These findings show how, while MDPs provide more powerful representations, they may not be the best choice when speed or simplicity is required. On the contrary, flower graph should be employed when the control flow is not important.
